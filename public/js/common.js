@@ -18,6 +18,25 @@ $("#submitPostButton").click(async () => {
   refreshPosts();
 });
 
+$(document).on("click", ".likeButton", (event) => {
+  // console.log("clicked");
+
+  const button = $(event.target);
+  const postId = getPostIdFromElement(button);
+
+  console.log(postId);
+});
+
+function getPostIdFromElement(element) {
+  const isRoot = element.hasClass("post");
+
+  const rootElement = isRoot === true ? element : element.closest(".post");
+
+  const postId = rootElement.data().id;
+
+  return postId;
+}
+
 function createPostHtml(postData) {
   const postedBy = postData.postedBy;
 
