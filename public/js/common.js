@@ -13,18 +13,21 @@ refreshPosts();
 // Creating a new post
 $("#submitPostButton").click(async () => {
   const postText = $("#post-text").val();
-  await axios.post("/api/post", { content: postText });
+  const newPostData = await axios.post("/api/post", { content: postText });
+  // console.log(newPostData);
   $("#post-text").val("");
   refreshPosts();
 });
 
-$(document).on("click", ".likeButton", (event) => {
+$(document).on("click", ".likeButton", async (event) => {
   // console.log("clicked");
 
   const button = $(event.target);
   const postId = getPostIdFromElement(button);
 
-  console.log(postId);
+  const postData = await axios.patch(`/api/posts/${postId}/like`);
+
+  console.log(postData);
 });
 
 function getPostIdFromElement(element) {
