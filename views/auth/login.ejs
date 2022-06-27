@@ -8,6 +8,9 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6 mt-3 logincontainer">
       <h5 class="display-5 text-center">Login</h5>
+      
+      <%- include("../partials/flash") %>
+      
       <form action="/login" method="POST">
         <div class="mb-3">
           <input
@@ -29,6 +32,9 @@
         <div class="d-grid gap-2">
           <button class="btn btn-primary" type="submit">Login</button>
         </div>
+        <div class="mb-3 mt-3">
+          <p><a href="/register">Need an account ? Register here</a></p>
+      </div>
       </form>
     </div>
     <div class="col-lg-3"></div>

@@ -15,11 +15,7 @@
         <div class="col-lg-6 mt-3 logincontainer">
             <h6 class="display-6">Sign Up</h6>
 
-            <div class="mb-3">
-                <%if(message && message.length){%>
-                    <p><%= message %></p>
-                <%}%>
-            </div>
+            <%-include("../partials/flash.ejs")%>
 
             <form action="/register" method="POST">
 

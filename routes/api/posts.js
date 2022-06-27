@@ -39,7 +39,7 @@ router.patch("/api/posts/:id/like", isLoggedIn, async (req, res) => {
     { new: true }
   );
 
-  const post = await Post.findOneAndUpdate(
+  const post = await Post.findByIdAndUpdate(
     postId,
     {
       [option]: { likes: userId },
