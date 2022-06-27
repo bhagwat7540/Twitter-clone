@@ -32,6 +32,10 @@ $(document).on("click", ".likeButton", async (event) => {
   button.find("span").text(postData.data.likes.length);
 });
 
+$("#replyModal").on("show.bs.modal", () => {
+  console.log("Modal opened");
+});
+
 function getPostIdFromElement(element) {
   const isRoot = element.hasClass("post");
 
@@ -71,7 +75,7 @@ function createPostHtml(postData) {
           </div>
           <div class="postFooter">
             <div class="postButtonContainer">
-              <button>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#replyModal">
                 <i class="far fa-comment"></i>
               </button>
             </div>
